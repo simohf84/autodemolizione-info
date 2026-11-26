@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scarica l'app – Autodemolizione Roma Nord</title>
+<meta name="description" content="Scarica gratis l'app di Autodemolizione Roma Nord per iPhone e Android: ricambi usati, rottamazione, promo e contatti.">
+<meta property="og:title" content="Scarica l'app di Autodemolizione Roma Nord">
+<meta property="og:description" content="Ricambi usati, rottamazione e promo nel tuo telefono. Gratis per iPhone e Android.">
+<meta property="og:image" content="https://simohf84.github.io/autodemolizione-info/logo.jpg">
+<link rel="icon" href="logo.jpg">
+<style>
+  :root { --neon:#78e65a; --ink:#08100a; --soft:#bedcc3; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    color:#fff; text-align:center;
+    background:radial-gradient(ellipse at 50% 30%, #2e6f2c 0%, #12300f 45%, var(--ink) 80%);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; padding:32px 20px;
+  }
+  .logo { width:132px; height:132px; border-radius:30px; background:#fff; padding:10px;
+          box-shadow:0 12px 40px rgba(0,0,0,.45), 0 0 60px rgba(120,230,90,.35); }
+  .logo img { width:100%; height:100%; object-fit:contain; }
+  .tag { display:inline-block; margin-top:26px; background:var(--neon); color:var(--ink);
+         font-weight:800; padding:6px 16px; border-radius:99px; letter-spacing:.5px; font-size:14px; }
+  h1 { font-size:clamp(30px,8vw,46px); line-height:1.05; margin:14px 0 4px; font-weight:900; text-transform:uppercase; }
+  h1 span { color:var(--neon); }
+  .sub { color:var(--soft); margin:0 0 28px; font-size:17px; }
+  .buttons { display:flex; flex-direction:column; gap:14px; width:100%; max-width:340px; }
+  .btn { display:block; border-radius:14px; transition:transform .15s; }
+  .btn:active { transform:scale(.97); }
+  .btn img { display:block; width:100%; height:auto; }
+  .btn.consigliato { outline:3px solid var(--neon); outline-offset:5px; }
+  .hint { color:var(--neon); font-size:14px; font-weight:700; min-height:20px; margin:4px 0 0; }
+  .call { margin-top:34px; background:var(--neon); color:var(--ink); border-radius:20px; padding:16px 22px;
+          width:100%; max-width:340px; }
+  .call b { display:block; font-size:15px; letter-spacing:1px; }
+  .call a { display:block; color:var(--ink); text-decoration:none; font-weight:900; font-size:26px; margin-top:6px; }
+  .call small { font-weight:700; font-size:12px; letter-spacing:1px; opacity:.75; }
+  footer { margin-top:28px; color:var(--soft); font-size:13px; }
+  footer a { color:var(--soft); }
+</style>
+</head>
+<body>
+  <div class="logo"><img src="logo.jpg" alt="Autodemolizione Roma Nord"></div>
+  <div class="tag">APP GRATUITA</div>
+  <h1>Autodemolizione<br><span>Roma Nord</span></h1>
+  <p class="sub">Ricambi usati, rottamazione e promo nel tuo telefono</p>
+
+  <p class="hint" id="hint"></p>
+  <div class="buttons">
+    <a class="btn" id="ios" href="https://apps.apple.com/it/app/id6835037328">
+      <img src="badge-app-store.svg" alt="Scarica su App Store">
+    </a>
+    <a class="btn" id="android" href="https://play.google.com/store/apps/details?id=it.autodemolizioneromanord.app">
+      <img src="badge-google-play.png" alt="Disponibile su Google Play">
+    </a>
+  </div>
+
+  <div class="call">
+    <b>CHIAMACI</b>
+    <a href="tel:+390761970432"><small>FISSO</small> 0761 970432</a>
+    <a href="tel:+393884803932"><small>CELLULARE</small> 388 4803932</a>
+  </div>
+
+  <footer>
+    Località Pietrolo snc, Rignano Flaminio (RM)<br>
+    <a href="index.html">Assistenza</a> · <a href="privacy.html">Privacy</a>
+  </footer>
+
+<script>
+  // mette in evidenza il pulsante giusto per il telefono di chi apre la pagina
+  var ua = navigator.userAgent || "";
+  var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/.test(ua);
+  var hint = document.getElementById("hint");
+  var box = document.querySelector(".buttons");
+  if (isIOS) {
+    document.getElementById("ios").classList.add("consigliato");
+    hint.textContent = "Hai un iPhone: tocca qui sotto 👇";
+  } else if (isAndroid) {
+    var a = document.getElementById("android");
+    a.classList.add("consigliato");
+    box.insertBefore(a, box.firstChild);
+    hint.textContent = "Hai un Android: tocca qui sotto 👇";
+  }
+</script>
+</body>
+</html>
